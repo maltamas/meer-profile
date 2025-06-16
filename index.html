@@ -7,39 +7,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meerjada's Resume</title>
     <style>
+        /* Background video styling */
+        #bg-video {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1;
+            object-fit: cover;
+            opacity: 0.2; /* Adjust for readability */
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: transparent;
+            color: #000;
+        }
+
         h2 {
             color: darkred;
+        }
+
+        nav a {
+            color: blue;
         }
     </style>
 </head>
 
 <body>
 
-    <!-- <a href="https://www.google.com">Click Me</a> -->
+    <!-- Background video -->
+    <video autoplay muted loop id="bg-video">
+        <source src="https://hrcdn.net/fcore/assets/onboarding/globe-5fdfa9a0f4.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
 
     <header>
         <table>
             <tr>
                 <td>
                     <a href="https://github.com/maltamas">
-                        <img style="float: left;" width="300"
-                            src="meer.jpg"
-                            alt="meerjada's photo">
+                        <img style="float: left;" width="300" src="meer.jpg" alt="meerjada's photo">
                     </a>
                 </td>
                 <td>
                     <h1>Meerjada Altamas</h1>
                     <p><i>Cyber Security Researcher</i></p>
-                    <p>Fueling my Love for Cybersecurity! ❤️🔐Guiding Coding Enthusiasts towards Secure Digital
-                        Frontiers 🚀</p>
-
-                    <style>
-                        /* Target all links within the navigation menu and change their color */
-                        nav a {
-                            color: blue;
-                        }
-                    </style>
-
+                    <p>Fueling my Love for Cybersecurity! ❤️🔐 Guiding Coding Enthusiasts towards Secure Digital Frontiers 🚀</p>
                     <nav>
                         <ul>
                             <li><a href="#education">Education</a></li>
@@ -49,16 +65,12 @@
                             <li><a href="#certificates">Certificates</a></li>
                             <li><a href="#contactme">Connect with Me</a></li>
                         </ul>
-
+                    </nav>
                 </td>
             </tr>
         </table>
-
-
         <hr>
     </header>
-
-    <!-- Header ends -->
 
     <main>
 
@@ -85,7 +97,7 @@
                 </tr>
                 <tr>
                     <td>12<sup>th</sup> Grade</td>
-                    <td>Janta Inter College </td>
+                    <td>Janta Inter College</td>
                     <td>2012</td>
                     <td>68%</td>
                 </tr>
@@ -100,7 +112,6 @@
 
         <section id="experiences">
             <h2>Experiences</h2>
-           
 
             <article>
                 <p><strong>Security Researcher at Indusface</strong></p>
@@ -112,6 +123,7 @@
                     <li>Perform vulnerability research and assessment for applications.</li>
                 </ul>
             </article>
+
             <article>
                 <p><strong>Cyber Security Consultant at Aujas Cybersecurity</strong></p>
                 <p><i>October 2021 to June 2022</i></p>
@@ -123,7 +135,8 @@
                     <li>Assisted with policy assurance.</li>
                 </ul>
             </article>
-             <article>
+
+            <article>
                 <p><strong>Project Engineer at CDAC R&amp;D Mumbai</strong></p>
                 <p><i>January 2019 to October 2021</i></p>
                 <ul>
@@ -169,7 +182,7 @@
                         <p>Active Directory, Group Policies, DNS Server, DHCP Server, WDS, RDS, WSUS, IIS, LDAP</p>
                     </article>
                 </li>
-                 <li>
+                <li>
                     <article>
                         <h3>DevOps</h3>
                         <p>Git, Puppet, Squid, Ansible, ELK</p>
@@ -190,70 +203,50 @@
                 <li>
                     <article>
                         <h3>Security Monitoring & Attack Detection Using DMZ</h3>
-                        
-                            <p>This project considers a network configuration that includes several layers of protection. It includes a packet filter firewall, 'demilitarized zone' or 'DMZ'.</p>
-
-                            <p>Implementing security monitoring mechanisms and attack detection techniques within the DMZ to enhance network security.</p>
-                        
+                        <p>This project considers a network configuration that includes several layers of protection. It includes a packet filter firewall, 'demilitarized zone' or 'DMZ'.</p>
+                        <p>Implementing security monitoring mechanisms and attack detection techniques within the DMZ to enhance network security.</p>
                     </article>
                 </li>
                 <li>
                     <article>
                         <h3>Analysis and Demonstration of DNS Attacks</h3>
                         <p>This project identified and demonstrated different vulnerabilities in domain name systems and servers using Kali Linux tools on virtual machines.</p>
-                        <p>MConducting analysis of DNS attacks and implementing countermeasures to enhance DNS security.</p>
+                        <p>Conducting analysis of DNS attacks and implementing countermeasures to enhance DNS security.</p>
                     </article>
                 </li>
             </ul>
             <hr>
         </section>
+
         <section id="certificates">
             <h2>Certificates</h2>
             <ul>
-                
                 <article>
-                    
                     <ul>
                         <li>PG-DITISS (Post Graduate Diploma in IT Infrastructure, Systems and Security)</li>
                         <li>ICSI | CNSS Certified Network Security Specialist</li>
                         <li>Fortinet Network Security Expert Level 1 and Level 2: Certified Associate</li>
                         <li>CEH-V11 (Certified Ethical Hacker)</li>
                         <li>Certified Appsec Practitioner (CAP)</li>
-                        <li>API Penetration Testing(APIsec University)</li>
+                        <li>API Penetration Testing (APIsec University)</li>
                     </ul>
                 </article>
-               
             </ul>
             <hr>
         </section>
     </main>
 
-    <aside>
-
-    </aside>
-
-    <!-- Main Section Ends -->
-
     <footer id="contactme">
         <h2 id="contact">Connect With Me</h2>
-        
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/meerjada-altamas-955a8715a/" style="color: blue;">linkedIn</a></p>
-    <p>GitHub: <a href="https://github.com/maltamas" style="color: blue;">gitHub</a></p>
-    <p>Twitter: <a href="https://twitter.com/meerjada" style="color: blue;">twitter</a></p>
-    <p>Medium: <a href="https://medium.com/@maltamas" style="color: blue;">medium</a></p>
-    <p>Email: <a href="mailto:altamas.meerzada@gmail.com" style="color: blue;">altamas.meerzada@gmail.com</a></p>
-    <p>Phone/WhatsApp: <a href="tel:+917860660772" style="color: blue;;">+917860660772</a></p>
-
-   <!--<a href="aboutus.html">
-        <p>About Us</p>
-    </a>--> 
-
-
-
-    <br><br><br>
-
-
-    <p>@meerjada</p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/meerjada-altamas-955a8715a/" style="color: blue;">linkedIn</a></p>
+        <p>GitHub: <a href="https://github.com/maltamas" style="color: blue;">gitHub</a></p>
+        <p>Twitter: <a href="https://twitter.com/meerjada" style="color: blue;">twitter</a></p>
+        <p>Medium: <a href="https://medium.com/@maltamas" style="color: blue;">medium</a></p>
+        <p>Email: <a href="mailto:altamas.meerzada@gmail.com" style="color: blue;">altamas.meerzada@gmail.com</a></p>
+        <p>Phone/WhatsApp: <a href="tel:+917860660772" style="color: blue;">+917860660772</a></p>
+        <br><br><br>
+        <p>@meerjada</p>
+    </footer>
 
 </body>
 
