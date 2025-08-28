@@ -1,16 +1,376 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting to Home...</title>
-    <script>
-        // Immediate redirect to home.html
-        window.location.replace('home.html');
-    </script>
-    <meta http-equiv="refresh" content="0; url=home.html">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meerjada's Resume</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #1a1a1a; /* Fallback background color */
+      color: #ffffff;
+      padding: 2rem;
+      line-height: 1.6;
+      position: relative; /* Needed for z-index to work on content */
+      z-index: 1; /* Ensure content is above video */
+      background-image: url('https://images.pexels.com/photos/3739124/pexels-photo-3739124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+      background-size: cover; /* Ensures the image covers the entire background */
+      background-position: center; /* Centers the image */
+      background-repeat: no-repeat; /* Prevents the image from repeating */
+    }
+
+    #bg-video {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%; https://cdn.hackthebox.com/website/Textless_Cyber_Performance_Center_Updated.mp4
+      min-height: 100%;
+      width: auto;
+      height: auto;a
+      z-index: -1;
+      background-size: cover;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      position: relative; /* Ensure container content is above the video */
+      z-index: 2; /* Higher than body's z-index */
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    header img {
+      width: 150px;
+      border-radius: 50%;
+      border: 3px solid #00c3ff;
+      box-shadow: 0 0 10px #00c3ff;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #00c3ff;
+      margin: 1rem 0 0.3rem;
+    }
+
+    h2 {
+      color: #ff6f61;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #ff6f61;
+      padding-bottom: 5px;
+    }
+
+    .section {
+      background-color: #2b2b2b;
+      border-left: 5px solid #00c3ff;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0, 255, 255, 0.2);
+    }
+
+    .section ul {
+      list-style: disc;
+      margin-left: 1.5rem;
+    }
+
+    .section p, .section li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer {
+      background-color: #00c3ff;
+      padding: 1.5rem;
+      text-align: center;
+      border-radius: 10px;
+      color: #000;
+      margin-top: 3rem;
+      position: relative; /* Ensure footer content is above the video */
+      z-index: 2; /* Higher than body's z-index */
+    }
+
+    .footer a {
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    nav {
+      margin-top: 1rem;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      list-style: none;
+      gap: 1rem;
+    }
+
+    nav a {
+      color: #00ffcc;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .education-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+
+    .education-table th, .education-table td {
+      padding: 0.5rem;
+      text-align: left;
+      border-bottom: 1px solid #444;
+    }
+
+    .education-table th {
+      color: #00c3ff;
+    }
+
+    @media screen and (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    .left-side-svg,
+    .right-side-svg {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 0; /* Below content, above video */
+      opacity: 0.2; /* Slightly transparent for background effect */
+    }
+
+    .left-side-svg {
+      left: 0;
+    }
+
+    .right-side-svg {
+      right: 0;
+    }
+  </style>
 </head>
 <body>
-    <p>If you are not redirected automatically, <a href="home.html">click here</a>.</p>
+  <!-- Remove or comment out the video section -->
+  <!-- 
+  <video autoplay muted loop id="bgVideo">
+    <source src="path/to/your/video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  -->
+
+  <!-- Left Side SVG -->
+  <div class="left-side-svg">
+    <svg width="305" height="358" xmlns="http://www.w3.org/2000/svg"
+         xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 844.64 987.45">
+      <!-- Replace this placeholder rect with your actual SVG content (paths, shapes, etc.) -->
+      <rect x="0" y="0" width="100%" height="100%" fill="#00c3ff" />
+    </svg>
+  </div>
+
+  <div class="container">
+    <header>
+      <img src="https://avatars.githubusercontent.com/u/39873267?v=4" alt="meerjada" />
+      <h1>Meerjada Altamas</h1>
+      <p><i>Cyber Security Researcher</i></p>
+      <p>❤️🔐 Fueling my Love for Cybersecurity</p>
+      <p>🚀 Guiding Coding Enthusiasts towards Secure Digital Frontiers</p>
+
+      <div class="contact-info" style="margin: 1rem 0; color: #00ffcc;">
+        <p>📱 <a href="tel:+917860660772" style="color: #00ffcc; text-decoration: none;">+91 7860660772</a> | 
+         💬 <a href="https://wa.me/917860660772" style="color: #00ffcc; text-decoration: none;">WhatsApp</a> | 
+         <a href="https://www.linkedin.com/in/meerjada-altamas-955a8715a/" style="color: #00ffcc; text-decoration: none;">LinkedIn</a></p>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#certificates">Certificates</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Education -->
+    <section class="section" id="education">
+      <h2>🎓 Education</h2>
+      <table class="education-table">
+        <tr>
+          <th>Course</th>
+          <th>Institute</th>
+        </tr>
+        <tr>
+          <td>PG-Diploma in Cyber Security</td>
+          <td>CDAC, Pune</td>
+        </tr>
+        <tr>
+          <td>B.Tech in Computer Science</td>
+          <td>IET, Faizabad</td>
+        </tr>
+        <tr>
+          <td>12<sup>th</sup> Grade</td>
+          <td>Janta Inter College</td>
+        </tr>
+        <tr>
+          <td>10<sup>th</sup> Grade</td>
+          <td>St. John's High School</td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- Experience -->
+    <section class="section" id="experience">
+      <h2>💼 Professional Experience</h2>
+      
+      <h3>🔐 Cyber Security Researcher – Indusface</h3>
+      <p><i>June 2022 – Present | Bangalore</i></p>
+      <ul>
+        <li>Perform penetration testing on IT systems, including web applications, mobile Applications, Network and API infrastructure. Define test procedures, execute tests, create test reports, and follow up on reported weaknesses.</li>
+        <li>Perform security assessments and exploit weaknesses using both manual and automated testing methodologies.</li>
+        <li>Provide support to other information security functions, such as vulnerability management and incident management.</li>
+        <li>Conduct SAST, DAST, IAST, and SCA testing for the application, perform secure code reviews secure SDLC.</li>
+        <li>Perform vulnerability assessments on thin and thick client-based applications and conduct security configuration reviews.</li>
+        <li>Develop logic for detecting web application scanners, write web application rules, and analyze emerging threats.</li>
+        <li>Vulnerability assessment and review audit policy compliance with standards such as OWASP, SANS 25, CIS, ISO 27001, PCI-DSS, GDPR, etc.</li>
+        <li>Collaborate with internal teams to enhance security controls and mitigate identified risks. Stay up to date with the latest security threats, vulnerabilities, and attack techniques. Document and report findings, including detailed vulnerability assessments and recommendations, to clients and stakeholders</li>
+      </ul>
+
+      <h3>🛡️ Cyber Security Consultant – Aujas Cybersecurity</h3>
+      <p><i>October 2021 – June 2022 | Delhi</i></p>
+      <ul>
+        <li>Perform vulnerability assessment and penetration testing for the application, infrastructure, network, and database.</li>
+        <li>Involves daily assessment of identified vulnerabilities and prioritization through infrastructure scans on both on-premises and cloud systems using automation scanning tools such as Nessus Tenable and QualysGuard.</li>
+        <li>Identify security gaps in infrastructure and application security and address these vulnerabilities to application owners and stakeholders with proper mitigation processes.</li>
+        <li>Perform vulnerability management duties to enhance security across the organization, prioritize the severity of vulnerabilities, and follow the mitigation process</li>
+        <li>Conduct security policy compliance as per security standard</li>
+      </ul>
+
+      <h3>🧪 Security Engineer – CDAC R&D Mumbai</h3>
+      <p><i>January 2019 – October 2021</i></p>
+      <ul>
+        <li>Conduct internal and external vulnerability assessment and penetration testing on applications, networks, and infrastructure for application security testing and infrastructure security testing.</li>
+        <li>Penetration Testing according to standard methodologies, black box and white box testing, using both automated and manual techniques. Follow compliance policies and conduct configuration reviews as per security standards.</li>
+        <li>Identify security gaps in the infrastructure and applications, prepare a comprehensive report, and present these vulnerabilities to clients along with a mitigation plan.</li>
+        <li>Vulnerability management duties to enhance security across the organization, prioritize the severity of vulnerabilities and follow the mitigation process after assigning vulnerabilities to different stakeholders.</li>
+        <li>Follow the secure SDLC methodology to implement SAST and DAST testing for the application, conduct secure code reviews, identify gaps, communicate them to developers, and explain the mitigation step.</li>
+      </ul>
+    </section>
+
+    <!-- Skills -->
+    <section class="section" id="skills">
+      <h2>🛠️ Technical Skills</h2>
+      
+      <h3>Cyber Security:</h3>
+      <p>VAPT, Application Security Testing, API, Thick Client, Red Teaming Assessment, Cloud Security, IAM, OWASP, SANS Top 25, Firewall, IDS/IPS, PKI, Nagios, VPN and Proxy, WAF/WAS, Plugin Developer/Signature Developer, Endpoint Security, Automation, CTF Player.</p>
+
+      <h3>Security Tools:</h3>
+      <p>Burp Suite, Metasploit, Tenable Nessus, QualysGuard, NMAP, WAF, Nikto, Wireshark, Wfuzz, Gobuster, Sqlmap, FTK Imager, Regshot, Ghidra, Shodan, Netcat, John the Ripper, Snort, OSINT, IDA, ProcMon, HxD, PRTG, Drozer, SonarQube, AppScan, Fortify, Snyk, Tenable.io, Trivy.</p>
+
+      <h3>Networking:</h3>
+      <p>OSI Layer and TCP layer, VPN, Routing and Switching protocols, Wireshark/Tcpdump.</p>
+
+      <h3>Linux:</h3>
+      <p>User and Group Management, DHCP Server, DNS Server, Web Server, FTP, SSH, Samba, NFS, Load Balancer, Proxy Server, Nginx, Rsyslog, DansGuardian, Cacti, Zabbix.</p>
+
+      <h3>Windows Servers:</h3>
+      <p>Active Directory, Group Policies, DNS Server, DHCP Server, WDS, RDS, WSUS, IIS, LDAP.</p>
+
+      <h3>DevSecOps:</h3>
+      <p>GitOps, GitLab, Puppet, Squid, Ansible, ELK, Jenkins, SonarQube, Fortify, Snyk, Trivy, CI/CD Pipeline, SAST, DAST, IAS, SCA, Docker, Container, Kubernetes, and Microservices.</p>
+
+      <h3>Programming:</h3>
+      <p>Python, JavaScript, Node.js, HTML, Shell Scripting.</p>
+
+      <h3>Cloud:</h3>
+      <p>AWS and Azure, IAM, Security configuration and review policies.</p>
+    </section>
+
+    <!-- Projects -->
+    <section class="section" id="projects">
+      <h2>🧪 Academic Projects</h2>
+      
+      <h3>Security Monitoring & Attack Detection Using DMZ</h3>
+      <ul>
+        <li>Multi-layer network protection with firewalls and DMZ</li>
+        <li>Implemented attack detection and security monitoring</li>
+      </ul>
+
+      <h3>Analysis & Demonstration of DNS Attacks</h3>
+      <ul>
+        <li>Demonstrated DNS vulnerabilities using Kali Linux</li>
+        <li>Proposed countermeasures and defense mechanisms</li>
+      </ul>
+    </section>
+
+    <!-- Certificates -->
+    <section class="section" id="certificates">
+      <h2>📜 Certificates</h2>
+      <ul>
+        <li>PG-DITISS – CDAC</li>
+        <li>CNSS – ICSI Certified Network Security Specialist</li>
+        <li>Fortinet NSE 1 & 2 – Certified Associate</li>
+        <li>CEH v11 – Certified Ethical Hacker</li>
+        <li>Certified AppSec Practitioner (CAP)</li>
+        <li>API Penetration Testing – APIsec University</li>
+      </ul>
+    </section>
+
+    <!-- Dev Quote of the Day -->
+    <section class="section">
+      <h2>✍️ Dev Quote of the Day:</h2>
+      <div align="center">
+        <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=tokyonight" />
+      </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer class="footer" id="contact">
+      <h2>Contact</h2>
+      <p>📧 <a href="mailto:altamas.meerzada@gmail.com" style="color: #000; text-decoration: none;">altamas.meerzada@gmail.com</a></p>
+      <p>📱 <a href="tel:+917860660772" style="color: #000; text-decoration: none;">+91 7860660772</a></p>
+      <p>💬 <a href="https://wa.me/917860660772" style="color: #000; text-decoration: none;">WhatsApp</a></p>
+      <p>
+        <a href="https://www.linkedin.com/in/meerjada-altamas-955a8715a/" style="color: #000; text-decoration: none;">LinkedIn</a> |
+        <a href="https://github.com/maltamas" style="color: #000; text-decoration: none;">GitHub</a> |
+        <a href="https://twitter.com/meerjada" style="color: #000; text-decoration: none;">Twitter</a> |
+        <a href="https://medium.com/@maltamas" style="color: #000; text-decoration: none;">Medium</a>
+      </p>
+      <p>&copy; 2024 Meerjada Altamas. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <!-- Right Side SVG -->
+  <div class="right-side-svg">
+    <svg width="305" height="358" xmlns="http://www.w3.org/2000/svg"
+         xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 844.64 987.45">
+      <!-- Replace this placeholder rect with your actual SVG content (paths, shapes, etc.) -->
+      <rect x="0" y="0" width="100%" height="100%" fill="#00c3ff" />
+    </svg>
+  </div>
 </body>
 </html>
