@@ -1,1 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Projects - Meerjada Altamas</title>
+  <style>
+    body {
+      background: #181828;
+      color: #24ff92;
+      font-family: 'Consolas', monospace;
+      min-height: 100vh;
+      margin: 0;
+    }
+    nav {
+      background: #232323;
+      padding: 12px 0;
+      box-shadow: 0 2px 15px rgba(36,255,146,0.15);
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li {
+      margin: 0 40px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 1.3em;
+      transition: color 0.2s;
+    }
+    nav ul li a:hover { color: #24ff92; }
 
+    .container {
+      max-width: 800px;
+      margin: 36px auto;
+      background: rgba(36,255,146,0.10);
+      border-radius: 25px;
+      box-shadow: 0 0 28px #24ff9260;
+      padding: 36px 24px;
+      text-align: center;
+    }
+    .title {
+      font-size: 2.3em;
+      letter-spacing: 1.5px;
+      color: #24caff;
+      text-shadow: 0 0 12px #24ff92, 0 0 24px #121212;
+      margin-bottom: 30px;
+    }
+    .projects-list {
+      display: flex;
+      flex-direction: column;
+      gap: 34px;
+    }
+    .project {
+      background: #232346;
+      border-radius: 14px;
+      padding: 24px 18px;
+      color: #fff;
+      box-shadow: 0 0 10px #24ff9285;
+      text-align: left;
+      position: relative;
+      border-left: 6px solid #24ff92;
+    }
+    .project .icon {
+      font-size: 2.1em;
+      margin-right: 22px;
+      vertical-align: middle;
+      float: left;
+      filter: drop-shadow(0 2px 15px #24ff92);
+      color: #c624ff;
+    }
+    .project-title {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #24caff;
+      margin-bottom: 6px;
+      display: inline-block;
+      margin-left: 7px;
+    }
+    .project-desc {
+      font-size: 1.11em;
+      margin-bottom: 7px;
+      color: #e0ffe0;
+      display: block;
+      margin-left: 46px;
+    }
+    .project-link a {
+      color: #24ff92;
+      text-decoration: underline;
+      margin-left: 46px;
+      font-size: 1em;
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <ul>
+    <li><a href="home.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+<div class="container">
+  <div class="title">🚀 Projects</div>
+  <div class="projects-list">
+    <div class="project">
+      <span class="icon">&#128295;</span>
+      <span class="project-title">Vulnerability Scanner Script</span>
+      <span class="project-desc">
+        Automated tool for web vulnerability scanning, custom signatures, and reporting. Open-source for learning.
+      </span>
+      <div class="project-link"><a href="https://github.com/maltamas/vulnscanner" target="_blank">View Code</a></div>
+    </div>
+    <div class="project">
+      <span class="icon">&#128027;</span>
+      <span class="project-title">CTF Writeups</span>
+      <span class="project-desc">
+        Detailed solutions, walkthroughs, and exploit strategies for Capture The Flag events.
+      </span>
+      <div class="project-link"><a href="https://github.com/maltamas/ctf-writeups" target="_blank">Read Writeups</a></div>
+    </div>
+    <div class="project">
+      <span class="icon">&#128737;</span>
+      <span class="project-title">Bug Bounty Research</span>
+      <span class="project-desc">
+        Real-world bug bounty findings with technical details and responsible disclosure notes.
+      </span>
+      <div class="project-link"><a href="https://github.com/maltamas/bug-bounties" target="_blank">Bug Reports</a></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
