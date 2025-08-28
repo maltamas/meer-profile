@@ -40,11 +40,10 @@
             align-items: center;
             padding: 0 2rem;
         }
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #00ffff;
-            text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+        .logo-img {
+            height: 40px;
+            width: auto;
+            filter: drop-shadow(0 0 10px #00ffff) drop-shadow(0 0 20px #00ffff);
             animation: glow 2s ease-in-out infinite alternate;
         }
         .nav-links {
@@ -122,8 +121,8 @@
             border-color: #ffff00;
         }
         @keyframes glow {
-            from { text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff; }
-            to { text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff; }
+            from { filter: drop-shadow(0 0 10px #00ffff) drop-shadow(0 0 20px #00ffff); }
+            to { filter: drop-shadow(0 0 20px #00ffff) drop-shadow(0 0 30px #00ffff) drop-shadow(0 0 40px #00ffff); }
         }
         @keyframes titleGlow {
             from { 
@@ -153,10 +152,13 @@
     </style>
 </head>
 <body>
+    <!-- Matrix background canvas -->
     <canvas class="matrix" id="matrix"></canvas>
+    
+    <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">M.A.</div>
+            <img src="meerjada_logo2.png" alt="Meerjada Altamas Logo" class="logo-img">
             <ul class="nav-links">
                 <li><a href="home.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
@@ -165,6 +167,8 @@
             </ul>
         </div>
     </nav>
+    
+    <!-- Main Content -->
     <div class="container">
         <h1 class="main-title">ABOUT</h1>
         <div class="about-box">
@@ -175,9 +179,11 @@
             <p class="about-text">
                 My full profile/resume is available on index.html
             </p>
-            <a href="index.html" class="resume-button">View Full Resume</a>
+            <a class="resume-button" href="index.html">View Full Resume</a>
         </div>
     </div>
+    
+    <!-- Matrix Animation Script -->
     <script>
         const canvas = document.getElementById('matrix');
         const ctx = canvas.getContext('2d');
