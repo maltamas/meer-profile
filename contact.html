@@ -3,103 +3,282 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Meer Profile</title>
+    <title>Contact - Altamas Meer</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+        * {
             margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        nav {
-            background: #333;
-            padding: 10px;
-            margin: -20px -20px 20px -20px;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-right: 15px;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        h1 {
-            color: #333;
-        }
-        .contact-info {
-            background: #f9f9f9;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 15px 0;
-        }
-        .contact-form {
-            background: #f9f9f9;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 15px 0;
-        }
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 8px;
-            margin: 5px 0;
-            border: 1px solid #ddd;
-            border-radius: 3px;
+            padding: 0;
             box-sizing: border-box;
         }
-        .contact-form button {
-            background: #333;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
+        
+        body {
+            background: linear-gradient(45deg, #000428, #004e92, #000428);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+            color: #00ff41;
+            font-family: 'Courier New', monospace;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow-x: hidden;
         }
-        .contact-form button:hover {
-            background: #555;
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            z-index: -1;
+            background: repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 98px,
+                #00ff41 100px
+            );
+            animation: matrixScroll 20s linear infinite;
+        }
+        
+        @keyframes matrixScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100px); }
+        }
+        
+        .contact-container {
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #00ff41;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 
+                0 0 20px #00ff41,
+                inset 0 0 20px rgba(0, 255, 65, 0.1);
+            max-width: 600px;
+            width: 90%;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+        
+        .contact-container::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ff0040, #00ff41, #0040ff, #ff0040);
+            background-size: 400% 400%;
+            border-radius: 15px;
+            z-index: -1;
+            animation: borderGlow 3s ease infinite;
+        }
+        
+        @keyframes borderGlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .title {
+            font-size: 2.5em;
+            color: #ff0040;
+            text-shadow: 0 0 10px #ff0040;
+            margin-bottom: 10px;
+            animation: pulse 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+        
+        .subtitle {
+            color: #00ff41;
+            font-size: 1.2em;
+            text-shadow: 0 0 5px #00ff41;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: rgba(0, 255, 65, 0.1);
+            border: 1px solid #00ff41;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .info-item:hover {
+            background: rgba(0, 255, 65, 0.2);
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.5);
+            transform: translateX(10px);
+        }
+        
+        .info-icon {
+            width: 30px;
+            height: 30px;
+            margin-right: 15px;
+            color: #ff0040;
+            text-shadow: 0 0 5px #ff0040;
+            font-size: 1.5em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .info-content {
+            flex: 1;
+        }
+        
+        .info-label {
+            color: #0099ff;
+            font-size: 0.9em;
+            text-shadow: 0 0 5px #0099ff;
+            display: block;
+        }
+        
+        .info-value {
+            color: #00ff41;
+            font-size: 1.1em;
+            text-shadow: 0 0 3px #00ff41;
+            margin-top: 3px;
+        }
+        
+        .info-value a {
+            color: #00ff41;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .info-value a:hover {
+            color: #ff0040;
+            text-shadow: 0 0 5px #ff0040;
+            text-decoration: underline;
+        }
+        
+        .glitch {
+            animation: glitch 2s infinite;
+        }
+        
+        @keyframes glitch {
+            0%, 90%, 100% { transform: translate(0); }
+            10% { transform: translate(-2px, 1px); }
+            20% { transform: translate(2px, -1px); }
+            30% { transform: translate(-1px, 2px); }
+            40% { transform: translate(1px, -2px); }
+            50% { transform: translate(-2px, -1px); }
+            60% { transform: translate(2px, 1px); }
+            70% { transform: translate(-1px, -2px); }
+            80% { transform: translate(1px, 2px); }
+        }
+        
+        @media (max-width: 768px) {
+            .contact-container {
+                padding: 25px;
+                margin: 20px;
+            }
+            
+            .title {
+                font-size: 2em;
+            }
+            
+            .info-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .info-icon {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="projects.html">Projects</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-        
-        <h1>Contact Me</h1>
-        <p>I'd love to hear from you! Feel free to reach out using the information below or send me a message.</p>
-        
-        <div class="contact-info">
-            <h2>Get In Touch</h2>
-            <p><strong>Email:</strong> meer@example.com</p>
-            <p><strong>Phone:</strong> +1 (555) 123-4567</p>
-            <p><strong>Location:</strong> Your City, Your Country</p>
-            <p><strong>LinkedIn:</strong> <a href="#">linkedin.com/in/yourprofile</a></p>
-            <p><strong>GitHub:</strong> <a href="#">github.com/yourusername</a></p>
+    <div class="matrix-bg"></div>
+    
+    <div class="contact-container">
+        <div class="header">
+            <h1 class="title glitch">CONTACT PROTOCOL</h1>
+            <p class="subtitle">[ALTAMAS.MEER] - SYSTEM ACCESS</p>
         </div>
         
-        <div class="contact-form">
-            <h2>Send a Message</h2>
-            <form>
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <input type="text" placeholder="Subject" required>
-                <textarea rows="5" placeholder="Your Message" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
+        <div class="contact-info">
+            <div class="info-item">
+                <div class="info-icon">📧</div>
+                <div class="info-content">
+                    <span class="info-label">EMAIL_CHANNEL:</span>
+                    <div class="info-value">
+                        <a href="mailto:altamas.meerzada@gmail.com">altamas.meerzada@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-item">
+                <div class="info-icon">📱</div>
+                <div class="info-content">
+                    <span class="info-label">VOICE_PROTOCOL:</span>
+                    <div class="info-value">
+                        <a href="tel:+917860660772">+91-7860660772</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-item">
+                <div class="info-icon">💬</div>
+                <div class="info-content">
+                    <span class="info-label">WHATSAPP_SECURE:</span>
+                    <div class="info-value">
+                        <a href="https://wa.me/917860660772">+91-7860660772</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-item">
+                <div class="info-icon">📍</div>
+                <div class="info-content">
+                    <span class="info-label">LOCATION_NODE:</span>
+                    <div class="info-value">Bangalore, Karnataka, India - PIN: [560XXX]</div>
+                </div>
+            </div>
+            
+            <div class="info-item">
+                <div class="info-icon">💼</div>
+                <div class="info-content">
+                    <span class="info-label">LINKEDIN_NETWORK:</span>
+                    <div class="info-value">
+                        <a href="https://linkedin.com/in/maltamas" target="_blank">linkedin.com/in/maltamas</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-item">
+                <div class="info-icon">⚡</div>
+                <div class="info-content">
+                    <span class="info-label">CODE_REPOSITORY:</span>
+                    <div class="info-value">
+                        <a href="https://github.com/maltamas" target="_blank">https://github.com/maltamas</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
