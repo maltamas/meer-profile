@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - Meerjada Altamas</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <style>
         * {
             margin: 0;
@@ -43,11 +44,46 @@
             padding: 0 2rem;
         }
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: bold;
             color: #00ffff;
             text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
             animation: glow 2s ease-in-out infinite alternate;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #ff0080, #00ffff);
+            border: 2px solid #00ffff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #ffffff;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3), inset 0 0 10px rgba(0, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            animation: logoColorChange 15s linear infinite;
+        }
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: logoScan 3s linear infinite;
+        }
+        .logo-text {
+            font-family: 'Courier New', monospace;
+            letter-spacing: 2px;
+            animation: textColorChange 15s linear infinite;
         }
         .nav-links {
             display: flex;
@@ -85,18 +121,53 @@
             text-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00;
             margin-bottom: 2rem;
             text-align: center;
-            animation: titleGlow 3s ease-in-out infinite alternate;
+            animation: titleColorChange 15s linear infinite;
         }
         .contact-section {
             background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(15, 52, 96, 0.8));
             border: 2px solid #ff00ff;
-            border-radius: 10px;
+            border-radius: 15px;
             padding: 3rem;
             margin: 2rem auto;
-            max-width: 800px;
+            max-width: 900px;
             box-shadow: 0 0 30px rgba(255, 0, 255, 0.3), inset 0 0 20px rgba(0, 255, 255, 0.1);
             position: relative;
             overflow: hidden;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .contact-card {
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.8), rgba(15, 52, 96, 0.6));
+            border: 1px solid #00ffff;
+            border-radius: 12px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            min-height: 300px;
+            backdrop-filter: blur(10px);
+        }
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            border-color: #ff00ff;
+        }
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        .contact-card:hover::before {
+            left: 100%;
         }
         .contact-section::before {
             content: '';
@@ -110,87 +181,252 @@
         }
         .contact-item {
             color: #ffffff;
-            font-size: 1.3rem;
-            line-height: 2;
+            font-size: 1rem;
+            line-height: 1.8;
             position: relative;
             z-index: 2;
-            margin: 1.5rem 0;
-            display: flex;
+            margin: 1.2rem 0;
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 1.5rem;
             align-items: center;
         }
         .contact-label {
             color: #ffff00;
             text-shadow: 0 0 5px #ffff00;
             font-weight: bold;
-            min-width: 150px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: right;
         }
         .contact-value {
             color: #00ffff;
             text-shadow: 0 0 5px #00ffff;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            word-break: break-word;
         }
         .contact-value a {
             color: #00ffff;
             text-decoration: none;
             transition: all 0.3s ease;
+            position: relative;
         }
         .contact-value a:hover {
             color: #ff00ff;
             text-shadow: 0 0 10px #ff00ff;
         }
+        .contact-value a::after {
+            content: '↗';
+            margin-left: 0.5rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .contact-value a:hover::after {
+            opacity: 1;
+        }
+        .contact-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 0.5rem;
+            filter: drop-shadow(0 0 5px #00ffff);
+        }
         .warning-box {
             background: rgba(255, 0, 0, 0.1);
             border: 2px solid #ff0000;
-            border-radius: 10px;
+            border-radius: 15px;
             padding: 2rem;
             margin: 3rem auto;
-            max-width: 800px;
+            max-width: 900px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .warning-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255, 0, 0, 0.1), transparent);
+            animation: warningPulse 2s ease-in-out infinite;
         }
         .warning-text {
             color: #ff4444;
             font-size: 1.2rem;
             font-weight: bold;
             text-shadow: 0 0 5px #ff0000;
+            position: relative;
+            z-index: 2;
+        }
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background: #00ff00;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+            animation: statusBlink 1s ease-in-out infinite alternate;
+        }
+        @keyframes warningPulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.7; }
+        }
+        @keyframes statusBlink {
+            from { opacity: 1; }
+            to { opacity: 0.3; }
         }
         /* Animations */
         @keyframes glow {
             from { text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff; }
             to { text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff; }
         }
-        @keyframes titleGlow {
-            from { 
-                text-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00;
-                transform: scale(1);
+        @keyframes logoScan {
+            0% { transform: translateX(-100%) translateY(-100%); }
+            100% { transform: translateX(100%) translateY(100%); }
+        }
+        
+        @keyframes logoColorChange {
+            0% {
+                background: linear-gradient(135deg, #ff0080, #00ffff);
+                border-color: #00ffff;
+                box-shadow: 0 0 20px rgba(0, 255, 255, 0.3), inset 0 0 10px rgba(0, 255, 255, 0.1);
             }
-            to { 
-                text-shadow: 0 0 30px #00ff00, 0 0 40px #00ff00, 0 0 50px #00ff00;
-                transform: scale(1.02);
+            16.66% {
+                background: linear-gradient(135deg, #00ffff, #ff00ff);
+                border-color: #ff00ff;
+                box-shadow: 0 0 20px rgba(255, 0, 255, 0.3), inset 0 0 10px rgba(255, 0, 255, 0.1);
+            }
+            33.33% {
+                background: linear-gradient(135deg, #ff00ff, #ffff00);
+                border-color: #ffff00;
+                box-shadow: 0 0 20px rgba(255, 255, 0, 0.3), inset 0 0 10px rgba(255, 255, 0, 0.1);
+            }
+            50% {
+                background: linear-gradient(135deg, #ffff00, #00ff00);
+                border-color: #00ff00;
+                box-shadow: 0 0 20px rgba(0, 255, 0, 0.3), inset 0 0 10px rgba(0, 255, 0, 0.1);
+            }
+            66.66% {
+                background: linear-gradient(135deg, #00ff00, #ff8000);
+                border-color: #ff8000;
+                box-shadow: 0 0 20px rgba(255, 128, 0, 0.3), inset 0 0 10px rgba(255, 128, 0, 0.1);
+            }
+            83.33% {
+                background: linear-gradient(135deg, #ff8000, #8000ff);
+                border-color: #8000ff;
+                box-shadow: 0 0 20px rgba(128, 0, 255, 0.3), inset 0 0 10px rgba(128, 0, 255, 0.1);
+            }
+            100% {
+                background: linear-gradient(135deg, #8000ff, #ff0080);
+                border-color: #ff0080;
+                box-shadow: 0 0 20px rgba(255, 0, 128, 0.3), inset 0 0 10px rgba(255, 0, 128, 0.1);
+            }
+        }
+        
+        @keyframes textColorChange {
+            0% {
+                color: #00ffff;
+                text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+            }
+            16.66% {
+                color: #ff00ff;
+                text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+            }
+            33.33% {
+                color: #ffff00;
+                text-shadow: 0 0 10px #ffff00, 0 0 20px #ffff00;
+            }
+            50% {
+                color: #00ff00;
+                text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+            }
+            66.66% {
+                color: #ff8000;
+                text-shadow: 0 0 10px #ff8000, 0 0 20px #ff8000;
+            }
+            83.33% {
+                color: #8000ff;
+                text-shadow: 0 0 10px #8000ff, 0 0 20px #8000ff;
+            }
+            100% {
+                color: #ff0080;
+                text-shadow: 0 0 10px #ff0080, 0 0 20px #ff0080;
+            }
+        }
+        @keyframes titleColorChange {
+            0% {
+                color: #00ffff;
+                text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff;
+            }
+            16.66% {
+                color: #ff00ff;
+                text-shadow: 0 0 20px #ff00ff, 0 0 30px #ff00ff;
+            }
+            33.33% {
+                color: #ffff00;
+                text-shadow: 0 0 20px #ffff00, 0 0 30px #ffff00;
+            }
+            50% {
+                color: #00ff00;
+                text-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00;
+            }
+            66.66% {
+                color: #ff8000;
+                text-shadow: 0 0 20px #ff8000, 0 0 30px #ff8000;
+            }
+            83.33% {
+                color: #8000ff;
+                text-shadow: 0 0 20px #8000ff, 0 0 30px #8000ff;
+            }
+            100% {
+                color: #ff0080;
+                text-shadow: 0 0 20px #ff0080, 0 0 30px #ff0080;
             }
         }
         @keyframes scan {
             0% { transform: translateX(-100%) translateY(-100%); }
             100% { transform: translateX(100%) translateY(100%); }
         }
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            .nav-links {
-                gap: 1rem;
-            }
-            .page-title {
-                font-size: 2rem;
-            }
-            .container {
-                padding: 2rem 1rem;
-            }
-            .contact-item {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-        }
+                 /* Responsive design */
+         @media (max-width: 768px) {
+             .nav-container {
+                 flex-direction: column;
+                 gap: 1rem;
+             }
+             .nav-links {
+                 gap: 1rem;
+             }
+             .page-title {
+                 font-size: 2rem;
+             }
+             .container {
+                 padding: 2rem 1rem;
+             }
+             .contact-grid {
+                 grid-template-columns: 1fr;
+                 gap: 1.5rem;
+             }
+             .contact-card {
+                 min-height: auto;
+                 padding: 1.5rem;
+             }
+             .contact-item {
+                 flex-direction: column;
+                 align-items: flex-start;
+                 gap: 0.5rem;
+             }
+             .contact-label {
+                 min-width: auto;
+                 font-size: 0.8rem;
+             }
+             .contact-value {
+                 font-size: 0.9rem;
+                 word-break: break-word;
+             }
+         }
     </style>
 </head>
 <body>
@@ -200,7 +436,10 @@
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">M.A.</div>
+            <div class="logo">
+                <div class="logo-icon">MA</div>
+                <span class="logo-text">MEERJADA ALTAMAS</span>
+            </div>
             <ul class="nav-links">
                 <li><a href="home.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
@@ -215,36 +454,108 @@
         <h1 class="page-title">SECURE CONTACT</h1>
         
         <div class="contact-section">
-            <div class="contact-item">
-                <span class="contact-label">[EMAIL]:</span>
-                <span class="contact-value"><a href="mailto:meerjada.altamas@protonmail.com">meerjada.altamas@protonmail.com</a></span>
-            </div>
-            <div class="contact-item">
-                <span class="contact-label">[LINKEDIN]:</span>
-                <span class="contact-value"><a href="https://linkedin.com/in/meerjada-altamas" target="_blank">linkedin.com/in/meerjada-altamas</a></span>
-            </div>
-            <div class="contact-item">
-                <span class="contact-label">[GITHUB]:</span>
-                <span class="contact-value"><a href="https://github.com/maltamas" target="_blank">github.com/maltamas</a></span>
-            </div>
-            <div class="contact-item">
-                <span class="contact-label">[TELEGRAM]:</span>
-                <span class="contact-value">@meerjada_secure</span>
-            </div>
-            <div class="contact-item">
-                <span class="contact-label">[PGP KEY ID]:</span>
-                <span class="contact-value">0x1A2B3C4D5E6F7G8H</span>
-            </div>
-            <div class="contact-item">
-                <span class="contact-label">[LOCATION]:</span>
-                <span class="contact-value">India (UTC+5:30)</span>
+            <div class="contact-grid">
+                <div class="contact-card">
+                                         <h3 style="color: #ffff00; margin-bottom: 2rem; text-shadow: 0 0 10px #ffff00; font-size: 1.3rem; text-align: center; border-bottom: 1px solid rgba(255, 255, 0, 0.3); padding-bottom: 1rem;">🔐 SECURE COMMUNICATIONS</h3>
+                                         <div class="contact-item">
+                         <span class="contact-label">📧 EMAIL:</span>
+                         <span class="contact-value">
+                             <a href="mailto:meerjada.altamas@protonmail.com">meerjada.altamas@protonmail.com</a>
+                         </span>
+                     </div>
+                    <div class="contact-item">
+                        <span class="contact-label">🔑 PGP KEY:</span>
+                        <span class="contact-value">0x1A2B3C4D5E6F7G8H</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">📱 SIGNAL:</span>
+                        <span class="contact-value">+91-XXXXXXXXXX</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">📨 TELEGRAM:</span>
+                        <span class="contact-value">@meerjada_secure</span>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                                         <h3 style="color: #ffff00; margin-bottom: 2rem; text-shadow: 0 0 10px #ffff00; font-size: 1.3rem; text-align: center; border-bottom: 1px solid rgba(255, 255, 0, 0.3); padding-bottom: 1rem;">🌐 PROFESSIONAL NETWORKS</h3>
+                                         <div class="contact-item">
+                         <span class="contact-label">💼 LINKEDIN:</span>
+                         <span class="contact-value">
+                             <a href="https://linkedin.com/in/meerjada-altamas" target="_blank">linkedin.com/in/meerjada-altamas</a>
+                         </span>
+                     </div>
+                                         <div class="contact-item">
+                         <span class="contact-label">🐙 GITHUB:</span>
+                         <span class="contact-value">
+                             <a href="https://github.com/maltamas" target="_blank">github.com/maltamas</a>
+                         </span>
+                     </div>
+                                         <div class="contact-item">
+                         <span class="contact-label">🐦 TWITTER:</span>
+                         <span class="contact-value">
+                             <a href="https://twitter.com/meerjada_sec" target="_blank">@meerjada_sec</a>
+                         </span>
+                     </div>
+                                         <div class="contact-item">
+                         <span class="contact-label">🔗 WEBSITE:</span>
+                         <span class="contact-value">
+                             <a href="https://meerjada-altamas.github.io" target="_blank">meerjada-altamas.github.io</a>
+                         </span>
+                     </div>
+                </div>
+                
+                <div class="contact-card">
+                    <h3 style="color: #ffff00; margin-bottom: 1rem; text-shadow: 0 0 10px #ffff00;">📍 LOCATION & AVAILABILITY</h3>
+                    <div class="contact-item">
+                        <span class="contact-label">🌍 LOCATION:</span>
+                        <span class="contact-value">India (UTC+5:30)</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">⏰ TIMEZONE:</span>
+                        <span class="contact-value">IST (UTC+5:30)</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">🕐 AVAILABLE:</span>
+                        <span class="contact-value"><span class="status-indicator"></span>Online</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">📅 RESPONSE:</span>
+                        <span class="contact-value">Within 24 hours</span>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <h3 style="color: #ffff00; margin-bottom: 1rem; text-shadow: 0 0 10px #ffff00;">🛡️ SECURITY PREFERENCES</h3>
+                    <div class="contact-item">
+                        <span class="contact-label">🔒 ENCRYPTION:</span>
+                        <span class="contact-value">PGP/GPG Preferred</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">📞 VOICE:</span>
+                        <span class="contact-value">Signal/Telegram</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">💬 CHAT:</span>
+                        <span class="contact-value">End-to-End Encrypted</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">📋 NDA:</span>
+                        <span class="contact-value">Available on Request</span>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="warning-box">
             <div class="warning-text">
-                ⚠ ENCRYPTED COMMUNICATIONS PREFERRED ⚠<br>
-                For sensitive discussions, use ProtonMail or Signal
+                ⚠️ SECURITY PROTOCOL ALERT ⚠️<br>
+                <span style="font-size: 1rem; margin-top: 0.5rem; display: block;">
+                    • For sensitive discussions, use ProtonMail with PGP encryption<br>
+                    • Signal/Telegram for secure messaging<br>
+                    • All communications are logged and monitored for security<br>
+                    • NDA available for confidential projects
+                </span>
             </div>
         </div>
     </div>
