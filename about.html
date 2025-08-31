@@ -4,6 +4,7 @@
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>About - Meerjada Altamas</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <style>
         * {
             margin: 0;
@@ -40,11 +41,47 @@
             align-items: center;
             padding: 0 2rem;
         }
-        .logo-img {
-            height: 40px;
-            width: auto;
-            filter: drop-shadow(0 0 10px #00ffff) drop-shadow(0 0 20px #00ffff);
+        .logo {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
             animation: glow 2s ease-in-out infinite alternate;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #ff0080, #00ffff);
+            border: 2px solid #00ffff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #ffffff;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3), inset 0 0 10px rgba(0, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            animation: logoColorChange 15s linear infinite;
+        }
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: logoScan 3s linear infinite;
+        }
+        .logo-text {
+            font-family: 'Courier New', monospace;
+            letter-spacing: 2px;
+            animation: textColorChange 15s linear infinite;
         }
         .nav-links {
             display: flex;
@@ -81,7 +118,7 @@
             color: #00ff00;
             text-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00;
             margin-bottom: 1rem;
-            animation: titleGlow 3s ease-in-out infinite alternate;
+            animation: titleColorChange 15s linear infinite;
         }
         .about-box {
             background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(15, 52, 96, 0.8));
@@ -121,17 +158,110 @@
             border-color: #ffff00;
         }
         @keyframes glow {
-            from { filter: drop-shadow(0 0 10px #00ffff) drop-shadow(0 0 20px #00ffff); }
-            to { filter: drop-shadow(0 0 20px #00ffff) drop-shadow(0 0 30px #00ffff) drop-shadow(0 0 40px #00ffff); }
+            from { text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff; }
+            to { text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff; }
         }
-        @keyframes titleGlow {
-            from { 
-                text-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00;
-                transform: scale(1);
+        @keyframes logoScan {
+            0% { transform: translateX(-100%) translateY(-100%); }
+            100% { transform: translateX(100%) translateY(100%); }
+        }
+        
+        @keyframes logoColorChange {
+            0% {
+                background: linear-gradient(135deg, #ff0080, #00ffff);
+                border-color: #00ffff;
+                box-shadow: 0 0 20px rgba(0, 255, 255, 0.3), inset 0 0 10px rgba(0, 255, 255, 0.1);
             }
-            to { 
-                text-shadow: 0 0 30px #00ff00, 0 0 40px #00ff00, 0 0 50px #00ff00;
-                transform: scale(1.02);
+            16.66% {
+                background: linear-gradient(135deg, #00ffff, #ff00ff);
+                border-color: #ff00ff;
+                box-shadow: 0 0 20px rgba(255, 0, 255, 0.3), inset 0 0 10px rgba(255, 0, 255, 0.1);
+            }
+            33.33% {
+                background: linear-gradient(135deg, #ff00ff, #ffff00);
+                border-color: #ffff00;
+                box-shadow: 0 0 20px rgba(255, 255, 0, 0.3), inset 0 0 10px rgba(255, 255, 0, 0.1);
+            }
+            50% {
+                background: linear-gradient(135deg, #ffff00, #00ff00);
+                border-color: #00ff00;
+                box-shadow: 0 0 20px rgba(0, 255, 0, 0.3), inset 0 0 10px rgba(0, 255, 0, 0.1);
+            }
+            66.66% {
+                background: linear-gradient(135deg, #00ff00, #ff8000);
+                border-color: #ff8000;
+                box-shadow: 0 0 20px rgba(255, 128, 0, 0.3), inset 0 0 10px rgba(255, 128, 0, 0.1);
+            }
+            83.33% {
+                background: linear-gradient(135deg, #ff8000, #8000ff);
+                border-color: #8000ff;
+                box-shadow: 0 0 20px rgba(128, 0, 255, 0.3), inset 0 0 10px rgba(128, 0, 255, 0.1);
+            }
+            100% {
+                background: linear-gradient(135deg, #8000ff, #ff0080);
+                border-color: #ff0080;
+                box-shadow: 0 0 20px rgba(255, 0, 128, 0.3), inset 0 0 10px rgba(255, 0, 128, 0.1);
+            }
+        }
+        
+        @keyframes textColorChange {
+            0% {
+                color: #00ffff;
+                text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+            }
+            16.66% {
+                color: #ff00ff;
+                text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+            }
+            33.33% {
+                color: #ffff00;
+                text-shadow: 0 0 10px #ffff00, 0 0 20px #ffff00;
+            }
+            50% {
+                color: #00ff00;
+                text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+            }
+            66.66% {
+                color: #ff8000;
+                text-shadow: 0 0 10px #ff8000, 0 0 20px #ff8000;
+            }
+            83.33% {
+                color: #8000ff;
+                text-shadow: 0 0 10px #8000ff, 0 0 20px #8000ff;
+            }
+            100% {
+                color: #ff0080;
+                text-shadow: 0 0 10px #ff0080, 0 0 20px #ff0080;
+            }
+        }
+        @keyframes titleColorChange {
+            0% {
+                color: #00ffff;
+                text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff;
+            }
+            16.66% {
+                color: #ff00ff;
+                text-shadow: 0 0 20px #ff00ff, 0 0 30px #ff00ff;
+            }
+            33.33% {
+                color: #ffff00;
+                text-shadow: 0 0 20px #ffff00, 0 0 30px #ffff00;
+            }
+            50% {
+                color: #00ff00;
+                text-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00;
+            }
+            66.66% {
+                color: #ff8000;
+                text-shadow: 0 0 20px #ff8000, 0 0 30px #ff8000;
+            }
+            83.33% {
+                color: #8000ff;
+                text-shadow: 0 0 20px #8000ff, 0 0 30px #8000ff;
+            }
+            100% {
+                color: #ff0080;
+                text-shadow: 0 0 20px #ff0080, 0 0 30px #ff0080;
             }
         }
         @media (max-width: 768px) {
@@ -152,13 +282,13 @@
     </style>
 </head>
 <body>
-    <!-- Matrix background canvas -->
     <canvas class="matrix" id="matrix"></canvas>
-    
-    <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="nav-container">
-            <img src="meerjada_logo2.png" alt="Meerjada Altamas Logo" class="logo-img">
+            <div class="logo">
+                <div class="logo-icon">MA</div>
+                <span class="logo-text">MEERJADA ALTAMAS</span>
+            </div>
             <ul class="nav-links">
                 <li><a href="home.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
@@ -167,8 +297,6 @@
             </ul>
         </div>
     </nav>
-    
-    <!-- Main Content -->
     <div class="container">
         <h1 class="main-title">ABOUT</h1>
         <div class="about-box">
@@ -179,11 +307,9 @@
             <p class="about-text">
                 My full profile/resume is available on meer.html
             </p>
-            <a class="resume-button" href="meer.html">View Full Resume</a>
+            <a href="meer.html" class="resume-button">View Full Resume</a>
         </div>
     </div>
-    
-    <!-- Matrix Animation Script -->
     <script>
         const canvas = document.getElementById('matrix');
         const ctx = canvas.getContext('2d');
