@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salwa Ansari - PhD Aspirant | Organic Chemistry Researcher</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Georgia', 'Times New Roman', serif;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        padding: 20px;
+        line-height: 1.7;
+        color: #2c3e50;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        background: white;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 50px 40px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .header::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        animation: pulse 8s infinite;
+    }
+
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+    }
+
+    .header-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    h1 {
+        font-size: 3em;
+        margin-bottom: 10px;
+        font-weight: 700;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .tagline {
+        font-size: 1.3em;
+        margin-bottom: 20px;
+        opacity: 0.95;
+        font-weight: 300;
+    }
+
+    .contact-info {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+        margin-top: 25px;
+        font-size: 0.95em;
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .content {
+        padding: 40px;
+    }
+
+    .section {
+        margin-bottom: 35px;
+        padding-bottom: 25px;
+        border-bottom: 2px solid #e8ecf1;
+    }
+
+    .section:last-child {
+        border-bottom: none;
+    }
+
+    h2 {
+        color: #667eea;
+        font-size: 1.8em;
+        margin-bottom: 20px;
+        padding-left: 15px;
+        border-left: 5px solid #667eea;
+        position: relative;
+    }
+
+    h2::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background: linear-gradient(90deg, #667eea, transparent);
+    }
+
+    .objective {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        padding: 25px;
+        border-radius: 10px;
+        border-left: 5px solid #667eea;
+        font-size: 1.05em;
+        line-height: 1.8;
+        color: #495057;
+        font-style: italic;
+    }
+
+    .education-item, .experience-item {
+        background: #f8f9fa;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        border-left: 4px solid #764ba2;
+        transition: all 0.3s;
+    }
+
+    .education-item:hover, .experience-item:hover {
+        background: #e9ecef;
+        transform: translateX(5px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .degree {
+        font-size: 1.3em;
+        color: #495057;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .institution {
+        font-size: 1.1em;
+        color: #667eea;
+        margin-bottom: 5px;
+    }
+
+    .duration {
+        color: #6c757d;
+        font-style: italic;
+        margin-bottom: 10px;
+    }
+
+    .grade {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+        padding: 5px 15px;
+        border-radius: 20px;
+        display: inline-block;
+        font-weight: bold;
+        font-size: 0.95em;
+    }
+
+    ul {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    li {
+        padding: 12px 0 12px 35px;
+        position: relative;
+        color: #495057;
+        line-height: 1.7;
+    }
+
+    li::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: #667eea;
+        font-weight: bold;
+        font-size: 1.3em;
+    }
+
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .skill-category {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        padding: 20px;
+        border-radius: 10px;
+        border-top: 3px solid #667eea;
+    }
+
+    .skill-category h3 {
+        color: #764ba2;
+        margin-bottom: 15px;
+        font-size: 1.2em;
+    }
+
+    .skill-category ul {
+        margin-top: 10px;
+    }
+
+    .skill-category li {
+        padding: 8px 0 8px 25px;
+        font-size: 0.95em;
+    }
+
+    .skill-category li::before {
+        content: '●';
+        font-size: 1em;
+    }
+
+    .achievement-badge {
+        background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+        color: white;
+        padding: 15px 25px;
+        border-radius: 10px;
+        display: inline-block;
+        margin: 10px 10px 10px 0;
+        font-weight: bold;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        transition: all 0.3s;
+    }
+
+    .achievement-badge:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    .highlight-box {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 25px;
+        border-radius: 10px;
+        margin: 20px 0;
+        box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+    }
+
+    .highlight-box h3 {
+        margin-bottom: 15px;
+        font-size: 1.3em;
+    }
+
+    .research-interests {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .interest-tag {
+        background: white;
+        color: #667eea;
+        padding: 10px 20px;
+        border-radius: 25px;
+        font-weight: 600;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        transition: all 0.3s;
+    }
+
+    .interest-tag:hover {
+        background: #667eea;
+        color: white;
+        transform: translateY(-2px);
+    }
+
+    .footer {
+        background: #2c3e50;
+        color: white;
+        text-align: center;
+        padding: 30px;
+        font-size: 0.9em;
+    }
+
+    .download-btn {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+        padding: 15px 40px;
+        border: none;
+        border-radius: 50px;
+        font-size: 1.1em;
+        font-weight: bold;
+        cursor: pointer;
+        box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        transition: all 0.3s;
+        margin-top: 20px;
+        display: inline-block;
+    }
+
+    .download-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+    }
+
+    @media print {
+        body {
+            background: white;
+            padding: 0;
+        }
+        .container {
+            box-shadow: none;
+            max-width: 100%;
+        }
+        .download-btn {
+            display: none;
+        }
+        .header {
+            background: #667eea;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .container {
+            margin: 10px;
+        }
+        h1 {
+            font-size: 2em;
+        }
+        .content {
+            padding: 20px;
+        }
+        .contact-info {
+            flex-direction: column;
+            gap: 10px;
+        }
+        .skills-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <!-- Header Section -->
+    <div class="header">
+        <div class="header-content">
+            <h1>Salwa Ansari</h1>
+            <p class="tagline">PhD Aspirant | Organic Chemistry Researcher | MSc in Chemistry</p>
+            <div class="contact-info">
+                <div class="contact-item">📧 salwanasari830@gmail.com</div>
+                <div class="contact-item">📱 +91 8006197134</div>
+                <div class="contact-item">📍 Bangalore, India</div>
+                <div class="contact-item">🔗 linkedin.com/in/meersal</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <!-- Career Objective -->
+        <div class="section">
+            <h2>Career Objective</h2>
+            <div class="objective">
+                Highly motivated and research-oriented Organic Chemistry postgraduate with UGC NET qualification, 
+                seeking admission to a prestigious PhD program to conduct advanced research in synthetic organic 
+                chemistry and medicinal chemistry. Equipped with strong analytical skills, hands-on laboratory 
+                experience, and a passion for teaching, I aim to contribute to cutting-edge research while fostering 
+                the next generation of chemists through academic excellence.
+            </div>
+        </div>
+
+        <!-- Education -->
+        <div class="section">
+            <h2>Academic Qualifications</h2>
+            
+            <div class="education-item">
+                <div class="degree">Master of Science (M.Sc.) in Organic Chemistry</div>
+                <div class="institution">Aligarh Muslim University (AMU), Aligarh, India</div>
+                <div class="duration">2019 – 2021</div>
+                <div class="grade">CGPA: 8.5/10 (First Division with Distinction)</div>
+                <p style="margin-top: 15px; color: #495057;">
+                    <strong>Key Coursework:</strong> Advanced Organic Synthesis, Reaction Mechanisms, 
+                    Stereochemistry, Spectroscopic Techniques (NMR, IR, UV-Vis, Mass Spectrometry), 
+                    Medicinal Chemistry, Natural Products, Green Chemistry, Heterocyclic Chemistry
+                </p>
+                <p style="margin-top: 10px; color: #495057;">
+                    <strong>Dissertation:</strong> "Structural Elucidation of Organic Compounds Using NMR Spectroscopy" 
+                    (Student ID: 19-OCHM-027)
+                </p>
+            </div>
+
+            <div class="education-item">
+                <div class="degree">Bachelor of Education (B.Ed.)</div>
+                <div class="institution">Aligarh Muslim University (AMU), Aligarh, India</div>
+                <div class="duration">2021 – 2023</div>
+                <div class="grade">CGPA: 8.3/10 (First Division with Distinction)</div>
+                <p style="margin-top: 15px; color: #495057;">
+                    <strong>Specialization:</strong> Science Education | Teaching Methodologies | 
+                    Curriculum Development | Educational Psychology | Pedagogy
+                </p>
+                <p style="margin-top: 10px; color: #495057;">
+                    Completed comprehensive teacher training program focusing on effective science teaching strategies, 
+                    classroom management, and modern educational technologies. Developed strong communication and 
+                    presentation skills essential for academic and research environments.
+                </p>
+            </div>
+
+            <div class="education-item">
+                <div class="degree">Bachelor of Science (B.Sc.) in Chemistry</div>
+                <div class="institution">Aligarh Muslim University (AMU), Aligarh, India</div>
+                <div class="duration">2016 – 2019</div>
+                <div class="grade">CGPA: 8.0/10 (First Division)</div>
+                <p style="margin-top: 15px; color: #495057;">
+                    <strong>Major:</strong> Chemistry (Organic, Inorganic, Physical) | <strong>Minors:</strong> Physics, Mathematics
+                </p>
+                <p style="margin-top: 10px; color: #495057;">
+                    Built strong foundation in fundamental chemistry principles, laboratory techniques, and analytical methods. 
+                    Gained extensive hands-on experience in chemical analysis, synthesis procedures, and safety protocols.
+                </p>
+            </div>
+        </div>
+
+        <!-- Research Profile -->
+        <div class="section">
+            <h2>Research Profile & Qualifications</h2>
+            
+            <div class="highlight-box">
+                <h3>🏆 UGC NET Qualified - Chemical Sciences</h3>
+                <p>Successfully qualified for University Grants Commission National Eligibility Test (UGC NET), 
+                demonstrating expertise in chemical sciences and eligibility for Assistant Professor positions 
+                and PhD admissions across India.</p>
+            </div>
+
+            <ul>
+                <li><strong>Research Expertise:</strong> Organic Synthesis, Reaction Mechanism Studies, 
+                Heterocyclic Chemistry, Medicinal Chemistry</li>
+                <li><strong>Spectroscopic Analysis:</strong> Proficient in structure elucidation using 
+                NMR (¹H, ¹³C), IR, UV-Vis, and Mass Spectrometry</li>
+                <li><strong>Laboratory Techniques:</strong> Column Chromatography, TLC, Recrystallization, 
+                Extraction, Distillation</li>
+                <li><strong>Research Interests:</strong> Drug Discovery, Green Chemistry, Synthesis of 
+                Biologically Active Compounds</li>
+                <li><strong>Analytical Skills:</strong> Data Analysis, Scientific Writing, Research Methodology</li>
+            </ul>
+        </div>
+
+        <!-- Research Project/Dissertation -->
+        <div class="section">
+            <h2>Research Experience & Dissertation</h2>
+            
+            <div class="experience-item" style="background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); border-left: 5px solid #667eea;">
+                <div class="degree" style="font-size: 1.4em; color: #667eea;">MSc Dissertation Project</div>
+                <div class="institution" style="font-size: 1.15em; color: #764ba2; font-weight: 600;">Department of Chemistry, Aligarh Muslim University</div>
+                <div class="duration" style="margin-bottom: 5px;">🗓️ Academic Year 2019-2021</div>
+                <div style="color: #6c757d; font-size: 0.95em; margin-bottom: 20px;">
+                    <strong>Student ID:</strong> 19-OCHM-027 | <strong>Candidate:</strong> Salwa Ansari
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 10px; margin: 20px 0;">
+                    <h3 style="margin-bottom: 10px; font-size: 1.3em;">📊 Project Title</h3>
+                    <p style="font-size: 1.2em; font-weight: 600; line-height: 1.6;">
+                        "Structural Elucidation of Organic Compounds Using NMR Spectroscopy"
+                    </p>
+                </div>
+                
+                <div style="margin: 20px 0;">
+                    <h3 style="color: #667eea; margin-bottom: 15px; font-size: 1.2em;">🔬 Research Overview</h3>
+                    <p style="margin: 15px 0; color: #495057; line-height: 1.8; text-align: justify;">
+                        This comprehensive research project focused on investigating the fundamental principles and 
+                        advanced applications of <strong>Nuclear Magnetic Resonance (NMR) spectroscopy</strong> as a 
+                        powerful analytical tool for determining the structural architecture of complex organic compounds. 
+                        The study emphasized the systematic interpretation of spectroscopic data to deduce molecular 
+                        structures, stereochemistry, and functional group environments with high precision and accuracy.
+                    </p>
+                </div>
+                
+                <div style="margin: 25px 0;">
+                    <h3 style="color: #764ba2; margin-bottom: 15px; font-size: 1.2em;">🎯 Key Research Components</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 12px 0; padding-left: 35px; position: relative; line-height: 1.7;">
+                            <span style="position: absolute; left: 0; color: #667eea; font-weight: bold; font-size: 1.3em;">✓</span>
+                            <strong>¹H NMR Spectroscopy:</strong> Detailed interpretation of proton NMR spectra including 
+                            chemical shift analysis, integration patterns, coupling constants (J-values), and multiplicity 
+                            determination to identify proton environments and molecular connectivity
+                        </li>
+                        <li style="padding: 12px 0; padding-left: 35px; position: relative; line-height: 1.7;">
+                            <span style="position: absolute; left: 0; color: #667eea; font-weight: bold; font-size: 1.3em;">✓</span>
+                            <strong>¹³C NMR Spectroscopy:</strong> Comprehensive analysis of carbon-13 NMR spectra to 
+                            determine carbon framework, identify functional groups, and establish molecular backbone structure 
+                            through chemical shift correlation and peak assignment
+                        </li>
+                        <li style="padding: 12px 0; padding-left: 35px; position: relative; line-height: 1.7;">
+                            <span style="position: absolute; left: 0; color: #667eea; font-weight: bold; font-size: 1.3em;">✓</span>
+                            <strong>DEPT (Distortionless Enhancement by Polarization Transfer):</strong> Applied advanced 
+                            DEPT techniques (DEPT-45, DEPT-90, DEPT-135) for unambiguous classification of carbon atoms 
+                            (CH₃, CH₂, CH, and quaternary carbons) to confirm structural assignments
+                        </li>
+                        <li style="padding: 12px 0; padding-left: 35px; position: relative; line-height: 1.7;">
+                            <span style="position: absolute; left: 0; color: #667eea; font-weight: bold; font-size: 1.3em;">✓</span>
+                            <strong>Spectral Interpretation & Analysis:</strong> Developed systematic methodology for 
+                            analyzing complex NMR spectra, identifying splitting patterns (singlet, doublet, triplet, multiplet), 
+                            and correlating spectroscopic data with molecular structure
+                        </li>
+                        <li style="padding: 12px 0; padding-left: 35px; position: relative; line-height: 1.7;">
+                            <span style="position: absolute; left: 0; color: #667eea; font-weight: bold; font-size: 1.3em;">✓</span>
+                            <strong>Chemical Shift Analysis:</strong> Studied the relationship between molecular structure 
+                            and chemical shift values, considering factors such as electronegativity, anisotropic effects, 
+                            and hydrogen bonding on spectral parameters
+                        </li>
+                        <li style="padding: 12px 0; padding-left: 35px; position: relative; line-height: 1.7;">
+                            <span style="position: absolute; left: 0; color: #667eea; font-weight: bold; font-size: 1.3em;">✓</span>
+                            <strong>Structure Determination:</strong> Successfully elucidated complete molecular structures 
+                            of diverse organic compounds through systematic spectral analysis, demonstrating proficiency in 
+                            connecting spectroscopic data to three-dimensional molecular architecture
+                        </li>
+                    </ul>
+                </div>
+                
+                <div style="margin: 25px 0;">
+                    <h3 style="color: #667eea; margin-bottom: 15px; font-size: 1.2em;">💡 Skills & Competencies Developed</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                        <div style="background: #e7f3ff; padding: 15px; border-radius: 8px; border-left: 4px solid #667eea;">
+                            <strong style="color: #667eea;">Analytical Reasoning</strong>
+                            <p style="margin-top: 8px; font-size: 0.95em; color: #495057;">Critical analysis of spectroscopic data and logical deduction of molecular structures</p>
+                        </div>
+                        <div style="background: #f3e7ff; padding: 15px; border-radius: 8px; border-left: 4px solid #764ba2;">
+                            <strong style="color: #764ba2;">Problem Solving</strong>
+                            <p style="margin-top: 8px; font-size: 0.95em; color: #495057;">Systematic approach to complex structural elucidation challenges</p>
+                        </div>
+                        <div style="background: #e7ffe7; padding: 15px; border-radius: 8px; border-left: 4px solid #28a745;">
+                            <strong style="color: #28a745;">Attention to Detail</strong>
+                            <p style="margin-top: 8px; font-size: 0.95em; color: #495057;">Meticulous interpretation of fine spectral features and coupling patterns</p>
+                        </div>
+                        <div style="background: #fff3e7; padding: 15px; border-radius: 8px; border-left: 4px solid #fd7e14;">
+                            <strong style="color: #fd7e14;">Technical Proficiency</strong>
+                            <p style="margin-top: 8px; font-size: 0.95em; color: #495057;">Hands-on expertise with NMR instrumentation and spectral processing software</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%); color: white; padding: 20px; border-radius: 10px; margin: 20px 0;">
+                    <h3 style="margin-bottom: 12px; font-size: 1.2em;">🏆 Research Outcomes & Impact</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 8px 0; padding-left: 25px; position: relative;">
+                            <span style="position: absolute; left: 0;">▸</span>
+                            Gained comprehensive practical understanding of modern spectroscopic techniques essential for advanced research
+                        </li>
+                        <li style="padding: 8px 0; padding-left: 25px; position: relative;">
+                            <span style="position: absolute; left: 0;">▸</span>
+                            Developed strong foundation in structural organic chemistry and molecular characterization methods
+                        </li>
+                        <li style="padding: 8px 0; padding-left: 25px; position: relative;">
+                            <span style="position: absolute; left: 0;">▸</span>
+                            Enhanced capability to work independently on complex analytical research projects
+                        </li>
+                        <li style="padding: 8px 0; padding-left: 25px; position: relative;">
+                            <span style="position: absolute; left: 0;">▸</span>
+                            Prepared comprehensive dissertation demonstrating research methodology, data analysis, and scientific writing skills
+                        </li>
+                    </ul>
+                </div>
+                
+                <div style="margin-top: 20px; padding: 15px; background: #f8f9fa; border-left: 4px solid #17a2b8; border-radius: 5px;">
+                    <p style="color: #495057; font-style: italic; line-height: 1.7;">
+                        <strong style="color: #17a2b8;">Research Significance:</strong> This dissertation work provided 
+                        extensive hands-on experience with state-of-the-art analytical instrumentation and developed 
+                        strong competencies in data interpretation, critical thinking, and scientific problem-solving—
+                        essential skills for pursuing advanced doctoral research in organic chemistry and related fields.
+                    </p>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="degree">Laboratory Research Assistant (If applicable)</div>
+                <div class="institution">[Institution Name]</div>
+                <div class="duration">[Duration]</div>
+                <p style="margin: 15px 0; color: #495057;">
+                    Assisted in ongoing research projects, maintained laboratory equipment, 
+                    prepared reagents, and supported senior researchers in data collection and analysis.
+                </p>
+            </div>
+        </div>
+
+        <!-- Technical Skills -->
+        <div class="section">
+            <h2>Technical Skills & Competencies</h2>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>🧪 Laboratory Skills</h3>
+                    <ul>
+                        <li>Organic Synthesis & Purification</li>
+                        <li>Column Chromatography</li>
+                        <li>Thin Layer Chromatography (TLC)</li>
+                        <li>Recrystallization Techniques</li>
+                        <li>Extraction & Distillation</li>
+                        <li>Rotary Evaporation</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>📊 Analytical Techniques</h3>
+                    <ul>
+                        <li>NMR Spectroscopy (¹H, ¹³C)</li>
+                        <li>IR Spectroscopy</li>
+                        <li>UV-Vis Spectroscopy</li>
+                        <li>Mass Spectrometry</li>
+                        <li>Melting Point Determination</li>
+                        <li>pH Measurements</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>💻 Software & Tools</h3>
+                    <ul>
+                        <li>ChemDraw (Structure Drawing)</li>
+                        <li>MestReNova (NMR Analysis)</li>
+                        <li>Origin/Excel (Data Analysis)</li>
+                        <li>SciFinder (Literature Search)</li>
+                        <li>Microsoft Office Suite</li>
+                        <li>Reference Management (Mendeley)</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>📚 Academic Skills</h3>
+                    <ul>
+                        <li>Scientific Writing</li>
+                        <li>Literature Review</li>
+                        <li>Research Methodology</li>
+                        <li>Critical Analysis</li>
+                        <li>Presentation Skills</li>
+                        <li>Problem-Solving</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>🎓 Teaching Skills</h3>
+                    <ul>
+                        <li>Concept-Based Teaching</li>
+                        <li>Lesson Planning</li>
+                        <li>Student Mentoring</li>
+                        <li>Classroom Management</li>
+                        <li>Laboratory Demonstration</li>
+                        <li>Assessment & Evaluation</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>⚗️ Safety & Protocols</h3>
+                    <ul>
+                        <li>Laboratory Safety Protocols</li>
+                        <li>Chemical Handling</li>
+                        <li>Waste Disposal</li>
+                        <li>Good Laboratory Practices</li>
+                        <li>Equipment Maintenance</li>
+                        <li>Safety Documentation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Research Interests -->
+        <div class="section">
+            <h2>Research Interests for PhD</h2>
+            <div class="research-interests">
+                <div class="interest-tag">Synthetic Organic Chemistry</div>
+                <div class="interest-tag">Medicinal Chemistry</div>
+                <div class="interest-tag">Drug Discovery</div>
+                <div class="interest-tag">Heterocyclic Chemistry</div>
+                <div class="interest-tag">Green Chemistry</div>
+                <div class="interest-tag">Natural Products</div>
+                <div class="interest-tag">Bioorganic Chemistry</div>
+                <div class="interest-tag">Reaction Mechanisms</div>
+                <div class="interest-tag">Structure-Activity Relationships</div>
+            </div>
+        </div>
+
+        <!-- Achievements & Certifications -->
+        <div class="section">
+            <h2>Achievements & Certifications</h2>
+            
+            <div class="achievement-badge">🏆 UGC NET Qualified (Chemical Sciences)</div>
+            <div class="achievement-badge">⭐ MSc First Division with Distinction (CGPA: 8.6)</div>
+            <div class="achievement-badge">📜 B.Ed Certified Educator</div>
+            
+            <ul style="margin-top: 25px;">
+                <li>Completed MSc with CGPA 8.6 from prestigious Aligarh Muslim University</li>
+                <li>Successfully completed comprehensive research dissertation in organic chemistry</li>
+                <li>Attended workshops/seminars on advanced spectroscopic techniques (if applicable)</li>
+                <li>Participated in national chemistry conferences/symposiums (if applicable)</li>
+                <li>Completed laboratory safety and chemical handling training</li>
+            </ul>
+        </div>
+
+        <!-- Publications & Presentations (if any) -->
+        <div class="section">
+            <h2>Publications & Presentations</h2>
+            <p style="color: #6c757d; font-style: italic; margin-bottom: 15px;">
+                (Add if you have any publications, conference presentations, or poster presentations)
+            </p>
+            <ul>
+                <li><strong>[Author Names]</strong> "[Paper Title]" <em>[Journal Name]</em>, 
+                [Volume], [Pages], [Year].</li>
+                <li>Poster Presentation: "[Title]" at [Conference Name], [Location], [Year]</li>
+            </ul>
+        </div>
+
+        <!-- Co-curricular Activities -->
+        <div class="section">
+            <h2>Co-curricular Activities & Responsibilities</h2>
+            <ul>
+                <li>Member of Chemistry Department Association/Society at AMU</li>
+                <li>Participated in science exhibitions and chemistry demonstrations</li>
+                <li>Assisted in organizing departmental seminars and workshops</li>
+                <li>Volunteered for peer tutoring and academic support programs</li>
+                <li>Engaged in community science outreach programs</li>
+            </ul>
+        </div>
+
+        <!-- Personal Details -->
+        <div class="section">
+            <h2>Personal Information</h2>
+            <div class="education-item" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+                <p><strong>Date of Birth:</strong> [Optional - DD/MM/YYYY]</p>
+                <p><strong>Nationality:</strong> Indian</p>
+                <p><strong>Languages Known:</strong> English (Fluent), Hindi (Native), Urdu (Proficient)</p>
+                <p><strong>Marital Status:</strong> [Optional]</p>
+                <p><strong>Hobbies:</strong> Reading scientific literature, laboratory experiments, 
+                teaching, attending chemistry seminars</p>
+            </div>
+        </div>
+
+        <!-- References -->
+        <div class="section">
+            <h2>References</h2>
+            
+            <div class="education-item">
+                <p><strong>Dr. [Professor Name]</strong></p>
+                <p>Professor, Department of Chemistry</p>
+                <p>Aligarh Muslim University, Aligarh</p>
+                <p>Email: [professor.email@amu.ac.in]</p>
+                <p>Phone: [+91-XXXXXXXXXX]</p>
+            </div>
+
+            <div class="education-item">
+                <p><strong>Dr. [Professor Name]</strong></p>
+                <p>[Designation], Department of Chemistry</p>
+                <p>[Institution Name]</p>
+                <p>Email: [email@institution.ac.in]</p>
+                <p>Phone: [+91-XXXXXXXXXX]</p>
+            </div>
+
+            <p style="margin-top: 20px; color: #6c757d; font-style: italic;">
+                Additional references available upon request
+            </p>
+        </div>
+
+        <!-- Call to Action -->
+        <div style="text-align: center; margin-top: 40px;">
+            <button class="download-btn" onclick="window.print()">
+                📄 Download/Print Resume
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p><strong>Declaration:</strong> I hereby declare that the information provided above is true 
+        and correct to the best of my knowledge and belief.</p>
+        <p style="margin-top: 15px;">Salwa Ansari</p>
+        <p style="margin-top: 20px; opacity: 0.7;">Last Updated: February 2026</p>
+    </div>
+</div>
+
+<script>
+    // Add smooth scroll effect
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Print functionality
+    function printResume() {
+        window.print();
+    }
+</script>
+
+</body>
+</html>
