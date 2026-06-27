@@ -1,1 +1,4 @@
-{"token":"SAFHMDS8hnnal1GEAQwEJQ"}
+{
+  "token": "SAFHMDS8hnnal1GEAQwEJQ",
+  "routePath": ".well-known/aws/securityagent-domain-verification.json"
+}
